@@ -5,6 +5,18 @@ This project sets up a basic Active Directory environment for learning, testing,
 
 <br />
 
+## Skills Demonstrated
+
+- **Active Directory Configuration** – Installed and configured a Windows Server 2019 Domain Controller and managed domain-joined clients.
+- **Virtualization Management** – Deployed and configured virtual machines using Oracle VirtualBox.
+- **User and Group Management** – Created and managed users, groups, and organizational units within Active Directory.
+- **DNS and Domain Services** – Configured DNS for name resolution and integrated with domain services.
+- **Windows Server Administration** – Managed server roles, features, and security settings.
+- **PowerShell Scripting** – Utilized PowerShell for administrative tasks and configuration automation.
+- **Network Configuration** – Set up internal network connections between VMs for isolated domain communication.
+- **Cybersecurity Lab Setup** – Built a reusable virtual environment for testing security tools and scenarios.
+
+
 <h2>Languages and Utilities Used</h2>
 
 - <b>Powershell</b> 
