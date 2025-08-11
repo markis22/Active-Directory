@@ -5,7 +5,6 @@ This project sets up a basic Active Directory environment for learning, testing,
 
 <br />
 
-
 <h2>Languages and Utilities Used</h2>
 
 - <b>Powershell</b> 
@@ -77,22 +76,30 @@ Right-click "IPv4" and "Configure the IP address accordingly, please make sure t
 <img src="https://i.imgur.com/bdpmykQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-In the Server Manager "configure this server" turn off Enhanced security Configuration (Optional if you're doing this in a home lab):  <br/>
+In the Server Manager, "configure this server" turn off Enhanced security Configuration (Optional if you're doing this in a home lab):  <br/>
 <img src="https://i.imgur.com/1mLO1o6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-I used a txt file with thousands of names for Users and I used this PowerShell script that automatically made 1000+ user accounts:  <br/>
+I used a txt file with thousands of names for Users, and I used this PowerShell script that automatically made 1000+ user accounts:  <br/>
 <img src="https://i.imgur.com/dg8VbHs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Double-check that the script ran successfully and then you are all done setting up the server!<br />
-Now moving on to set up the Client Windows...<br />
-Here is the setup for the new VM with the Windows using ISO file: <br />
-<img src="https://i.imgur.com/QX6wzuS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Double-check that the script ran successfully, and then you are all done setting up the server!<br />
+<br />
+<br />
+<br />
+Now moving on to set up the Client Windows...
 <br />
 <br />
 Here is the setup for the new VM with the Windows using ISO file: <br />
 <img src="https://i.imgur.com/QX6wzuS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Here is the setup for the new VM with the Windows 10 using ISO file: <br />
+<img src="https://i.imgur.com/QX6wzuS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br /> 
+
 <br />
 <br /> 
 </p>
