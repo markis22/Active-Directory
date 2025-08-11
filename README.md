@@ -13,8 +13,8 @@ This project sets up a basic Active Directory environment for learning, testing,
 
 <h2>Environments Used </h2>
 
-- <b>Windows 10</b> (21H2)
-- <b>Windows Server 2019</b> (21H2)
+- <b>Windows 10</b> 
+- <b>Windows Server 2019</b> 
 
 <h2>Program walk-through:</h2>
 
@@ -28,58 +28,73 @@ For better function, go to "Devices" --> "insert Guest Additions CD image" and t
 <br />
 <br />
 Start a new Scan on Nessus Essentials & set your target IP: <br/>
-<img src="https://i.imgur.com/Wqb6cVd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/MTN4Sxh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 Wait for the scan to complete and check findings (Basic scan looks ok):  <br/>
-<img src="https://i.imgur.com/1iw7IIT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/FU4cniO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Inspect the Scan:  <br/>
-<img src="https://i.imgur.com/tuYUDIy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+In the Server Manager, click "Add roles and features" and go through it and Install:  <br/>
+<img src="https://i.imgur.com/TT8W1dA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Change Remote Registry properties to "Automatic":  <br/>
-<img src="https://i.imgur.com/UwoDocX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+After setting up the server "Promote this server to a domain controller" and restart the Server VM:  <br/>
+<img src="https://i.imgur.com/duuJpVp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Turn on File and Print sharing:  <br/>
-<img src="https://i.imgur.com/2h3Ngbs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Open "Active Directory Users and Computers" and in mydomain.com create a new Organizational unit and call it "ADMINS":  <br/>
+<img src="https://i.imgur.com/lytEhoe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Turn off notifications when changes made to the computer (optional):  <br/>
-<img src="https://i.imgur.com/hpKXoc3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+In the ADMINS folder you just made create a new user and fill it out accordingly:  <br/>
+<img src="https://i.imgur.com/MxmdSHh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Add a new registry and call it "LocalAccountTokenFilterPolicy" and change value data to "1":  <br/>
-<img src="https://i.imgur.com/H5VfelN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Now, with the new user you just created, go to "properties" and make them a member of "Domains Admins":  <br/>
+<img src="https://i.imgur.com/rmQfpT2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Going to Nessus Essentials on my Host I did another scan and added my VM credentials to do a more thorough scan:  <br/>
-Inspect the results (We now see more vulnerabilities than the basic scan):  <br/>
-<img src="https://i.imgur.com/CPmBX0a.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Sign out and sign in as the User you just created  <br/>
+Click "Add roles and features" and select "Remote Access" for the role and enable "Routing" and Install:  <br/>
+<img src="https://i.imgur.com/Qa49Bso.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-I installed an old version of Mozilla FireFox (2005):  <br/>
-<img src="https://i.imgur.com/gRsjIHc.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+In the Server Manager, click on "Tools" and select "Routing and Remote Access" for the role and enable "Routing" and install  <br/>
+Select the NAT and for the public interface select the adaptor that is connected to the internet:  <br/>
+<img src="https://i.imgur.com/fnxyBc1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Going back to Nessus Essentials I did another scan with even more critical vulnerabilities:  <br/>
-<img src="https://i.imgur.com/aQe0qJR.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Now to set the DHCP server to the domain controller....  <br/>
 <br />
 <br />
-Inspect the results (We now see more vulnerabilities than the basic scan):  <br/>
-<img src="https://i.imgur.com/2vff7dy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+"Add roles and features" and for server roles select "DHCP server" and install:  <br/>
+<img src="https://i.imgur.com/5y19Rhi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Uninstalled Mozilla FireFox and remediated as many vulnerabilities as we could:  <br/>
-<img src="https://i.imgur.com/fOnupzf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+In the Server Manager, click on "Tools" and select "DHCP" for the role and enable "Routing", and install  <br/>
+Right-click "IPv4" and "Configure the IP address accordingly, please make sure to add the DC IP to the router:  <br/>
+<img src="https://i.imgur.com/bdpmykQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Finally did one last scan on Nessus (look at how many vulnerabilities we remediated!):  <br/>
-<img src="https://i.imgur.com/ggdT0LV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+In the Server Manager "configure this server" turn off Enhanced security Configuration (Optional if you're doing this in a home lab):  <br/>
+<img src="https://i.imgur.com/1mLO1o6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
+I used a txt file with thousands of names for Users and I used this PowerShell script that automatically made 1000+ user accounts:  <br/>
+<img src="https://i.imgur.com/dg8VbHs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Double-check that the script ran successfully and then you are all done setting up the server!<br />
+Now moving on to set up the Client Windows...<br />
+Here is the setup for the new VM with the Windows using ISO file: <br />
+<img src="https://i.imgur.com/QX6wzuS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Here is the setup for the new VM with the Windows using ISO file: <br />
+<img src="https://i.imgur.com/QX6wzuS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br /> 
 </p>
 
 
