@@ -96,7 +96,11 @@ I used a txt file with thousands of names for Users, and I used this PowerShell 
 <img src="https://i.imgur.com/dg8VbHs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Double-check that the script ran successfully, and then you are all done setting up the server!<br />
+When you are done, go back to the Domain Controller and when you check the Active Directory Users list we made earlier you will find a list of 1000s of new users:  <br/>
+<img src="https://i.imgur.com/SzQ8vnX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Now that we know that the script ran successfully, and then you are all done setting up the server!<br />
 <br />
 <br />
 <br />
@@ -104,14 +108,26 @@ Now moving on to set up the Client Windows...
 <br />
 <br />
 Here is the setup for the new VM with the Windows using ISO file: <br />
+Before booting up the CLIENT, be sure to set the network adaptor to "Internal Network": <br />
 <img src="https://i.imgur.com/QX6wzuS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Here is the setup for the new VM with the Windows 10 using ISO file: <br />
-<img src="https://i.imgur.com/QX6wzuS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Now open the command prompt and type "ipconfig" to check that the IPv4, subnetMask, and Default Gateway look in order <br />
+Also, make sure that you can ping "mydomain.com" from CLIENT VM to see that it's properly configured: <br />
+<img src="https://i.imgur.com/cNLXliO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+You would also see from the Domain Controller that you connected successfully by checking in the DHCP that a new Address lease was created for the CLIENT VM: <br />
+<img src="https://i.imgur.com/nl7QDAf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
 <br />
 <br /> 
-
+Now, to rename the system like you see in the image and put in the login credentials you set up with the PS script with password "Password1": <br />
+<img src="https://i.imgur.com/WAnwdRT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Finally, you can see that we can log in as one of the users that we created in the Domain Controller in the CLIENT VM: <br />
+<img src="https://i.imgur.com/mza7eiA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br /> 
 </p>
