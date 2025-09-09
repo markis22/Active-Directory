@@ -84,7 +84,7 @@ Now to set the DHCP server to the domain controller....  <br/>
 <br />
 <br />
 In the Server Manager, click on "Tools" and select "DHCP" for the role and enable "Routing", and install  <br/>
-Right-click "IPv4" and "Configure the IP address accordingly, please make sure to add the DC IP to the router:  <br/>
+Right-click "IPv4" and "Configure the IP address accordingly. Please make sure to add the DC IP to the router:  <br/>
 <img src="https://i.imgur.com/bdpmykQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
@@ -92,7 +92,7 @@ In the Server Manager, "configure this server" turn off Enhanced security Config
 <img src="https://i.imgur.com/1mLO1o6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-I used a txt file with thousands of names for Users, and I used this PowerShell script that automatically made 1000+ user accounts:  <br/>
+I used a txt file with thousands of names for Users, and I used this <a href="https://github.com/markis22/Active-Directory/blob/main/Generating_New_Users_on_AD" target="_blank">Powershell</a> script that automatically made 1000+ user accounts:  <br/>
 <img src="https://i.imgur.com/dg8VbHs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
